@@ -2,8 +2,13 @@ FROM php:5.6-apache-stretch
 
 RUN apt-get update
 
-RUN apt-get install -y libjpeg-dev libpng-dev libxml2-dev libbz2-dev libzip-dev \
-                        libmcrypt-dev libreadline-dev libedit-dev libcurl4-openssl-dev \
-                        vim
+RUN apt-get install -y libjpeg-dev libpng-dev libxml2-dev libbz2-dev libzip-dev libmcrypt-dev
 
-RUN docker-php-ext-install bz2 curl dom gd iconv intl mbstring mcrypt mysql mysqli pcntl pdo_mysql readline session soap sockets xmlreader zip
+RUN docker-php-ext-install bz2 gd intl mcrypt mysql mysqli pcntl pdo_mysql soap sockets xmlreader zip
+
+ADD https://github.com/kelseyhightower/confd/releases/download/v0.16.0/confd-0.16.0-linux-amd64 /usr/local/bin/confd
+RUN chmod +x /usr/local/bin/confd
+
+ADD confd /etc/confd
+ADD bin/docker-php-entrypoint /usr/local/bin/docker-php-entrypoint
+RUN chmod +x /usr/local/bin/docker-php-entrypoint
