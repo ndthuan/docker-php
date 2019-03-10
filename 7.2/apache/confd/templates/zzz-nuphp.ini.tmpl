@@ -1,3 +1,4 @@
 upload_max_filesize={{ or (getenv "NUPHP_UPLOAD_MAX_FILESIZE") "2M"}}
 post_max_size={{ or (getenv "NUPHP_POST_MAX_FILESIZE") "8M"}}
 memory_limit={{ or (getenv "NUPHP_MEMORY_LIMIT") "128M"}}
+expose_php={{ or (getenv "NUPHP_EXPOSE_VERSION") "Off"}}
