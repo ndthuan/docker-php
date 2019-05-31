@@ -1,0 +1,6 @@
+ServerTokens {{ getenv "APACHE_SERVER_TOKENS" "Prod" }}
+ServerSignature {{ getenv "APACHE_SERVER_SIGNATURE" "Off" }}
+<IfModule mod_headers.c>
+	Header unset ETag
+</IfModule>
+FileETag None

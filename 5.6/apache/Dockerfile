@@ -9,6 +9,6 @@ RUN docker-php-ext-install bz2 gd intl mcrypt mysql mysqli pcntl pdo_mysql soap 
 ADD https://github.com/kelseyhightower/confd/releases/download/v0.16.0/confd-0.16.0-linux-amd64 /usr/local/bin/confd
 RUN chmod +x /usr/local/bin/confd
 
-ADD confd /etc/confd
-ADD bin/docker-php-entrypoint /usr/local/bin/docker-php-entrypoint
+ADD resources/confd /etc/confd
+ADD resources/bin/docker-php-entrypoint /usr/local/bin/docker-php-entrypoint
 RUN chmod +x /usr/local/bin/docker-php-entrypoint
