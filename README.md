@@ -2,7 +2,15 @@
 
 PHP image packaged with commonly used extensions: `bz2 gd intl mbstring mysqli opcache pcntl pdo_mysql soap sockets zip`.
 
-Example: `docker run -p 8080:8080 -e NEW_WWW_DATA_UID=$UID -e NUPHP_MEMORY_LIMIT=256M -v $(pwd):/var/www/html ndthuan/php:7.3-apache bash`
+Example: 
+```bash
+docker run -p 8080:80 \
+-e NEW_WWW_DATA_UID=$UID \
+-e NUPHP_POST_MAX_FILESIZE=106M \
+-e NUPHP_UPLOAD_MAX_FILESIZE=100M \
+-v $(pwd):/var/www/html \
+ndthuan/php:7.3-apache
+```
 
 Available tags:
 * 5.6-apache
