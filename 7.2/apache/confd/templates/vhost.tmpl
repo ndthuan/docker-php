@@ -19,7 +19,7 @@
 	#Include conf-available/serve-cgi-bin.conf
 
     <Directory /var/www/html>
-        Options {{ getenv "WWW_DIR_OPTIONS" "-Indexes FollowSymLinks" }}
+        Options {{ getenv "WWW_DIR_OPTIONS" "Indexes FollowSymLinks" }}
         AllowOverride {{ getenv "WWW_DIR_ALLOW_OVERRIDE" "None" }}
         Require all granted
     </Directory>
