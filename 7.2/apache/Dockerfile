@@ -12,3 +12,5 @@ RUN chmod +x /usr/local/bin/confd
 ADD resources/confd /etc/confd
 ADD resources/bin/docker-php-entrypoint /usr/local/bin/docker-php-entrypoint
 RUN chmod +x /usr/local/bin/docker-php-entrypoint
+
+RUN a2enmod headers rewrite
