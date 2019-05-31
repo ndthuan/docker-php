@@ -2,7 +2,7 @@
 
 `docker pull ndthuan:php/{TAG}`
 
-Available tags: 
+Available tags:
 * 5.6-apache
 * 7.2-apache
 * 7.3-apache
@@ -18,3 +18,5 @@ Available tags:
 * NUPHP_SESSION_NAME (default: PHPSESSID)
 * NUPHP_SESSION_SAVE_HANDLER (default: files)
 * NUPHP_SESSION_SAVE_PATH (default: _empty_)
+* WWW_DIR_ALLOW_OVERRIDE (default: "None")
+* WWW_DIR_OPTIONS (default: "-Indexes FollowSymLinks")

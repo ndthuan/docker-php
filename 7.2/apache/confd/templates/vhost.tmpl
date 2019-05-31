@@ -1,0 +1,28 @@
+<VirtualHost *:80>
+	ServerAdmin {{ getenv "VHOST_SERVER_ADMIN" "webmaster@localhost" }}
+	DocumentRoot /var/www/html
+
+	# Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
+	# error, crit, alert, emerg.
+	# It is also possible to configure the loglevel for particular
+	# modules, e.g.
+	#LogLevel info ssl:warn
+
+	ErrorLog  {{ getenv "VHOST_ERROR_LOG" "${APACHE_LOG_DIR}/error.log"}}
+	CustomLog {{ getenv "VHOST_ACCESS_LOG" "${APACHE_LOG_DIR}/access.log"}} {{ getenv "VHOST_ACCESS_LOG_FORMAT" "combined"}}
+
+	# For most configuration files from conf-available/, which are
+	# enabled or disabled at a global level, it is possible to
+	# include a line for only one particular virtual host. For example the
+	# following line enables the CGI configuration for this host only
+	# after it has been globally disabled with "a2disconf".
+	#Include conf-available/serve-cgi-bin.conf
+
+    <Directory /var/www/html>
+        Options {{ getenv "WWW_DIR_OPTIONS" "-Indexes FollowSymLinks" }}
+        AllowOverride {{ getenv "WWW_DIR_ALLOW_OVERRIDE" "None" }}
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
