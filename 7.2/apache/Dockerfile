@@ -2,7 +2,8 @@ FROM php:7.2-apache
 
 RUN apt-get update
 
-RUN apt-get install -y libjpeg-dev libpng-dev libxml2-dev libbz2-dev libzip-dev
+RUN apt-get install -y libjpeg-dev libpng-dev libxml2-dev libbz2-dev libzip-dev ssmtp \
+    && echo 'sendmail_path = "/usr/sbin/ssmtp -t"' > /usr/local/etc/php/conf.d/zzz-mail.ini
 
 RUN docker-php-ext-install bz2 gd intl mbstring mysqli opcache pcntl pdo_mysql soap sockets zip
 

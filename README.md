@@ -34,7 +34,18 @@ Available tags:
   * APACHE_SERVER_SIGNATURE (default: Off)
   * VHOST_SERVER_ADMIN (default: webmaster@localhost)
   * WWW_DIR_ALLOW_OVERRIDE (default: "None")
-  * WWW_DIR_OPTIONS (default: "-Indexes FollowSymLinks")
+  * WWW_DIR_OPTIONS (default: "-Indexes")
 * Modify **www-data** UID and GID by supplying:
   * NEW_WWW_DATA_UID
   * NEW_WWW_DATA_GID
+* **sSMTP settings**
+  * SSMTP_ROOT_EMAIL (default: root)
+  * SSMTP_MAILHUB (default: localhost:25)
+  * SSMTP_REWRITE_DOMAIN (default: empty)
+  * SSMTP_HOSTNAME (default: localhost.localdomain)
+  * SSMTP_FROM_LINE_OVERRIDE (default: YES)
+  * SSMTP_AUTH_USER (default: empty)
+  * SSMTP_AUTH_PASS (default: empty)
+  * SSMTP_AUTH_METHOD (default: LOGIN)
+  * SSMTP_USE_TLS (default: YES)
+  * SSMTP_USE_STARTTLS (default: YES)
