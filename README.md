@@ -47,5 +47,5 @@ Available tags:
   * SSMTP_AUTH_USER (default: empty)
   * SSMTP_AUTH_PASS (default: empty)
   * SSMTP_AUTH_METHOD (default: LOGIN)
-  * SSMTP_USE_TLS (default: YES)
-  * SSMTP_USE_STARTTLS (default: YES)
+  * SSMTP_USE_TLS (default: NO)
+  * SSMTP_USE_STARTTLS (default: NO)
