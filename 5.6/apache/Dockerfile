@@ -15,3 +15,5 @@ ADD resources/bin/docker-php-entrypoint /usr/local/bin/docker-php-entrypoint
 RUN chmod +x /usr/local/bin/docker-php-entrypoint
 
 RUN a2enmod headers rewrite
+
+COPY --from=composer /usr/bin/composer /usr/bin/composer
