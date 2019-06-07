@@ -1,0 +1,10 @@
+[www]
+user = www-data
+group = www-data
+
+pm = dynamic
+pm.max_children = {{ or (getenv "FPM_MAX_CHILDREN") "10"}}
+pm.start_servers = {{ or (getenv "FPM_START_SERVERS") "2"}}
+pm.min_spare_servers = {{ or (getenv "FPM_MIN_SPARE_SERVERS") "1"}}
+pm.max_spare_servers = {{ or (getenv "FPM_MAX_SPARE_SERVERS") "3"}}
+pm.max_requests = {{ or (getenv "FPM_MAX_REQUESTS") "500"}}
