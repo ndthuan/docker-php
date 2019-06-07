@@ -11,6 +11,9 @@ ADD https://github.com/kelseyhightower/confd/releases/download/v0.16.0/confd-0.1
 RUN chmod +x /usr/local/bin/confd
 
 ADD resources/confd /etc/confd
+ADD resources/confd-apache/conf.d /etc/confd/conf.d
+ADD resources/confd-apache/templates /etc/confd/templates
+
 ADD resources/bin/docker-php-entrypoint /usr/local/bin/docker-php-entrypoint
 RUN chmod +x /usr/local/bin/docker-php-entrypoint
 
