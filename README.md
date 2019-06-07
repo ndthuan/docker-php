@@ -15,6 +15,7 @@ ndthuan/php:7.3-apache
 Available tags:
 * 5.6-apache
 * 7.2-apache
+* 7.2-fpm-nginx
 * 7.3-apache
 * 7.3-fpm-nginx
 

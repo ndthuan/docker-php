@@ -7,6 +7,8 @@ RUN apt-get install -y libjpeg-dev libpng-dev libxml2-dev libbz2-dev libzip-dev 
 
 RUN docker-php-ext-install bz2 gd intl mbstring mysqli opcache pcntl pdo_mysql soap sockets zip
 
+RUN apt-get clean
+
 ADD https://github.com/kelseyhightower/confd/releases/download/v0.16.0/confd-0.16.0-linux-amd64 /usr/local/bin/confd
 RUN chmod +x /usr/local/bin/confd
 
