@@ -4,7 +4,7 @@ PHP image packaged with commonly used extensions: `bz2 gd intl mbstring mysqli o
 
 **Examples:**
 
-For Open source apps that put everything in public root directory such as phpBB, WordPress...:
+For open source apps that put everything in public root directory such as phpBB, WordPress...:
 ```bash
 docker run -p 8080:80 \
 -e NEW_WWW_DATA_UID=$UID \
@@ -83,3 +83,7 @@ Also, if you have tens of web apps, this helps you quickly launch a container wi
   * SSMTP_AUTH_METHOD (default: LOGIN)
   * SSMTP_USE_TLS (default: NO)
   * SSMTP_USE_STARTTLS (default: NO)
+
+# Credits
+
+These Docker images are packaged with the excellent [confd](https://github.com/kelseyhightower/confd) for managing configuration templates.
