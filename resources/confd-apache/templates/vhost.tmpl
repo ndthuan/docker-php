@@ -1,6 +1,6 @@
 <VirtualHost *:80>
 	ServerAdmin {{ getenv "VHOST_SERVER_ADMIN" "webmaster@localhost" }}
-	DocumentRoot /var/www/html
+	DocumentRoot {{ getenv "VHOST_PUBLIC_ROOT" "/var/www/html" }}
 
 	# Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
 	# error, crit, alert, emerg.
@@ -18,7 +18,7 @@
 	# after it has been globally disabled with "a2disconf".
 	#Include conf-available/serve-cgi-bin.conf
 
-    <Directory /var/www/html>
+    <Directory {{ getenv "VHOST_PUBLIC_ROOT" "/var/www/html" }}>
         Options {{ getenv "WWW_DIR_OPTIONS" "-Indexes" }}
         AllowOverride {{ getenv "WWW_DIR_ALLOW_OVERRIDE" "None" }}
         Require all granted

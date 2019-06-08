@@ -7,7 +7,7 @@ RUN apk add bzip2-dev jpeg-dev libpng-dev icu-dev libxml2-dev libzip-dev ssmtp n
 
 RUN docker-php-ext-install bz2 gd intl mbstring mysqli opcache pcntl pdo_mysql soap sockets zip
 
-ADD https://github.com/kelseyhightower/confd/releases/download/v0.16.0/confd-0.16.0-linux-amd64 /usr/local/bin/confd
+ADD resources/bin/confd-0.16.0-linux-amd64 /usr/local/bin/confd
 RUN chmod +x /usr/local/bin/confd
 
 ADD resources/confd /etc/confd
