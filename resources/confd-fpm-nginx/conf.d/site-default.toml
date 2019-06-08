@@ -1,3 +1,0 @@
-[template]
-src = "site-default"
-dest = "/etc/nginx/sites-enabled/default"
