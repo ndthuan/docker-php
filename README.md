@@ -1,6 +1,6 @@
 # docker-php
 
-PHP image packaged with commonly used extensions: `bz2 gd intl mbstring mysqli opcache pcntl pdo_mysql soap sockets zip`.
+PHP image packaged with commonly used extensions: `bz2 gd intl mbstring memcached mysqli opcache pcntl pdo_mysql soap sockets zip`.
 
 **Examples:**
 

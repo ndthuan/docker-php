@@ -2,10 +2,11 @@ FROM php:5.6-apache
 
 RUN apt-get update
 
-RUN apt-get install -y libjpeg-dev libpng-dev libxml2-dev libbz2-dev libzip-dev libmcrypt-dev ssmtp \
-    && echo 'sendmail_path = "/usr/sbin/ssmtp -t"' > /usr/local/etc/php/conf.d/zzz-mail.ini
-
-RUN docker-php-ext-install bz2 gd intl mcrypt mysql mysqli pcntl pdo_mysql soap sockets xmlreader zip
+RUN apt-get install -y libjpeg-dev libpng-dev libxml2-dev libbz2-dev libzip-dev libmcrypt-dev libmemcached-dev ssmtp \
+    && pecl install memcached-2.2.0 \
+    && echo 'extension=memcached.so' >> /usr/local/etc/php/conf.d/memcached.ini \
+    && echo 'sendmail_path = "/usr/sbin/ssmtp -t"' > /usr/local/etc/php/conf.d/zzz-mail.ini \
+    && docker-php-ext-install bz2 gd intl mcrypt mysql mysqli pcntl pdo_mysql soap sockets xmlreader zip
 
 RUN apt-get clean
 

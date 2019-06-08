@@ -2,10 +2,11 @@ FROM php:7.3-apache
 
 RUN apt-get update
 
-RUN apt-get install -y libjpeg-dev libpng-dev libxml2-dev libbz2-dev libzip-dev ssmtp \
-     && echo 'sendmail_path = "/usr/sbin/ssmtp -t"' > /usr/local/etc/php/conf.d/zzz-mail.ini
-
-RUN docker-php-ext-install bz2 gd intl mbstring mysqli opcache pcntl pdo_mysql soap sockets zip
+RUN apt-get install -y libjpeg-dev libpng-dev libxml2-dev libbz2-dev libzip-dev libmemcached-dev ssmtp \
+    && pecl install memcached-3.1.3 \
+    && echo 'extension=memcached.so' >> /usr/local/etc/php/conf.d/memcached.ini \
+    && echo 'sendmail_path = "/usr/sbin/ssmtp -t"' > /usr/local/etc/php/conf.d/zzz-mail.ini \
+    && docker-php-ext-install bz2 gd intl mbstring mysqli opcache pcntl pdo_mysql soap sockets zip
 
 RUN apt-get clean
 

@@ -2,10 +2,11 @@ FROM php:7.3-fpm-alpine
 
 RUN apk update --no-cache
 
-RUN apk add bzip2-dev jpeg-dev libpng-dev icu-dev libxml2-dev libzip-dev ssmtp nginx \
-     && echo 'sendmail_path = "/usr/sbin/ssmtp -t"' > /usr/local/etc/php/conf.d/zzz-mail.ini
-
-RUN docker-php-ext-install bz2 gd intl mbstring mysqli opcache pcntl pdo_mysql soap sockets zip
+RUN apk add bzip2-dev jpeg-dev libpng-dev icu-dev libxml2-dev libzip-dev ssmtp libmemcached-dev zlib-dev autoconf build-base pkgconf nginx \
+    && pecl install memcached-3.1.3 \
+    && echo 'extension=memcached.so' >> /usr/local/etc/php/conf.d/memcached.ini \
+    && echo 'sendmail_path = "/usr/sbin/ssmtp -t"' > /usr/local/etc/php/conf.d/zzz-mail.ini \
+    && docker-php-ext-install bz2 gd intl mbstring mysqli opcache pcntl pdo_mysql soap sockets zip
 
 ADD resources/bin/confd-0.16.0-linux-amd64 /usr/local/bin/confd
 RUN chmod +x /usr/local/bin/confd
