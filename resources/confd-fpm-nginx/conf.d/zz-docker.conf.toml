@@ -1,3 +1,0 @@
-[template]
-src = "zz-docker.conf"
-dest = "/usr/local/etc/php-fpm.d/zz-docker.conf"
