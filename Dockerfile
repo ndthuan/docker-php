@@ -1,7 +1,7 @@
 FROM alpine:3.7 AS builder
 
 RUN apk update --no-cache && \
-    apk add --no-cache libmemcached-dev rabbitmq-c-dev zlib-dev autoconf build-base pkgconf php5-dev php5-pear  php5-openssl && \
+    apk add --no-cache libmemcached-dev rabbitmq-c-dev zlib-dev autoconf build-base pkgconf php5-dev php5-pear php5-openssl && \
     ln -s /usr/bin/php5 /usr/bin/php && \
     ln -s /usr/bin/phpize5 /usr/bin/phpize && \
     ln -s /usr/bin/php-config5 /usr/bin/php-config && \
@@ -26,9 +26,8 @@ RUN apk update --no-cache && \
     ln -sf /proc/self/fd/2 /var/log/apache2/error.log && \
     adduser -S -s /sbin/nologin -G www-data -h /var/www/html www-data
 
-COPY --from=builder /usr/lib/php5/modules/memcached.so /usr/lib/php5/modules/
-COPY --from=builder /usr/lib/php5/modules/redis.so /usr/lib/php5/modules/
-COPY --from=builder /usr/lib/php5/modules/amqp.so /usr/lib/php5/modules/
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+COPY --from=builder /usr/lib/php5/modules/* /usr/lib/php5/modules/
 COPY entrypoint.sh /
 
 RUN chmod +x /entrypoint.sh
