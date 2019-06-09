@@ -1,6 +1,6 @@
 # docker-php
 
-PHP image packaged with commonly used extensions: `bz2 gd intl mbstring memcached mysqli opcache pcntl pdo_mysql soap sockets zip`.
+PHP image packaged with commonly used extensions: `bz2 gd intl mbstring memcached mysqli opcache pcntl pdo_mysql soap sockets zip`...
 
 **Examples:**
 
@@ -23,21 +23,21 @@ docker run -p 8080:80 \
 -e NGINX_REWRITE_MODE=framework
 -e VHOST_PUBLIC_ROOT=/app/public
 -v $(pwd):/app \
-ndthuan/php:7.3-fpm-nginx
+ndthuan/php:7.3-fpm-nginx-alpine
 ```
 
-Available tags:
-* 5.6-apache
-* 7.2-apache
-* 7.2-fpm-nginx - Alpine based
+Available tags (Dockerfile for each is in the corresponding branch):
+* 5.6-apache-alpine
+* 7.2-apache-alpine
+* 7.2-fpm-nginx-alpine
 * 7.3-apache
-* 7.3-fpm-nginx - Alpine based
+* 7.3-fpm-nginx-alpine
 
 # About php-fpm and nginx in the same image
 
 Some people might argue that this defeats the philosophy of containers that multiple services should not be running in the same container.
 
-But since php-fpm itself cannot serve HTTP, we need a web server to act as its frontend. These two services come together to serve the same concern so it's valid to put them in the same image.  
+But since php-fpm itself cannot serve HTTP, we need a web server to act as its frontend. These two services come together to serve the same concern so it's valid to put them in the same image.
 
 Also, if you have tens of web apps, this helps you quickly launch a container without touching a configuration file.
 
@@ -60,6 +60,8 @@ Also, if you have tens of web apps, this helps you quickly launch a container wi
   * WWW_DIR_ALLOW_OVERRIDE (default: "None")
   * WWW_DIR_OPTIONS (default: "-Indexes")
   * VHOST_PUBLIC_ROOT (default: /var/www/html)
+  * VHOST_PUBLIC_ROOT (default: /var/www/html)
+  * VHOST_FALLBACK_RESOURCE (default: /index.php)
 * **PHP-FPM settings**
   * FPM_MAX_CHILDREN (default: 10)
   * FPM_START_SERVERS (default: 2)
@@ -68,7 +70,7 @@ Also, if you have tens of web apps, this helps you quickly launch a container wi
   * FPM_MAX_REQUESTS (default: 500)
 * **Nginx** settings
   * NGINX_REWRITE_MODE (default: empty) set to `framework` to enable the rewrite rule `try_files $uri $uri/ /index.php$is_args$args;`. This works for frameworks such as Laravel/Symfony/Zend.
-  * VHOST_PUBLIC_ROOT (default: /var/www/html) 
+  * VHOST_PUBLIC_ROOT (default: /var/www/html)
 * Modify **www-data** UID and GID by supplying:
   * NEW_WWW_DATA_UID
   * NEW_WWW_DATA_GID
