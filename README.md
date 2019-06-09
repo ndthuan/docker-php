@@ -13,11 +13,11 @@ docker run -p 8080:80 \
 -e NGINX_REWRITE_MODE=framework
 -e VHOST_PUBLIC_ROOT=/app/public
 -v $(pwd):/app \
-ndthuan/php:7.3-fpm-nginx
+ndthuan/php:7.2-fpm-nginx-alpine
 ```
 
 Available tags:
-* 7.3-fpm-nginx-alpine
+* 7.2-fpm-nginx-alpine
 
 # About php-fpm and nginx in the same image
 

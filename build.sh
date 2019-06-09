@@ -1,2 +1,2 @@
 #!/bin/sh
-docker build -t ndthuan/php:7.3-fpm-nginx-alpine .
+docker build -t ndthuan/php:7.2-fpm-nginx-alpine .
