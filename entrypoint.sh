@@ -10,11 +10,7 @@ if [ ! -z "$NEW_WWW_DATA_GID" ]; then
     groupmod -g $NEW_WWW_DATA_GID www-data
 fi
 
-cat > /etc/php5/conf.d/zzz-nuphp.ini <<EOF
-extension=amqp.so
-extension=redis.so
-extension=memcached.so
-
+cat > /etc/php7/conf.d/zzz-nuphp.ini <<EOF
 upload_max_filesize=${NUPHP_UPLOAD_MAX_FILESIZE:-2M}
 post_max_size=${NUPHP_POST_MAX_FILESIZE:-8M}
 memory_limit=${NUPHP_MEMORY_LIMIT:-128M}

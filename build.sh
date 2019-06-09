@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build -t ndthuan/php:5.6-apache-alpine .
+docker build -t ndthuan/php:7.2-apache-alpine .

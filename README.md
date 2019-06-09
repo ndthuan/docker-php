@@ -11,7 +11,7 @@ docker run -p 8080:80 \
 -e NUPHP_POST_MAX_FILESIZE=106M \
 -e NUPHP_UPLOAD_MAX_FILESIZE=100M \
 -v $(pwd):/var/www/html \
-ndthuan/php:5.6-apache-alpine
+ndthuan/php:7.2-apache-alpine
 ```
 
 For apps using Laravel/Symfony/Zend, etc...
@@ -22,7 +22,7 @@ docker run -p 8080:80 \
 -e NUPHP_UPLOAD_MAX_FILESIZE=100M \
 -e VHOST_PUBLIC_ROOT=/app/public
 -v $(pwd):/app \
-ndthuan/php:5.6-apache-alpine
+ndthuan/php:7.2-apache-alpine
 ```
 
 # Supported env vars
