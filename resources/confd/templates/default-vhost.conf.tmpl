@@ -22,6 +22,7 @@
         Options {{ getenv "WWW_DIR_OPTIONS" "-Indexes" }}
         AllowOverride {{ getenv "WWW_DIR_ALLOW_OVERRIDE" "None" }}
         Require all granted
+        FallbackResource {{ getenv "VHOST_FALLBACK_RESOURCE" "/index.php" }}
     </Directory>
 </VirtualHost>
 
