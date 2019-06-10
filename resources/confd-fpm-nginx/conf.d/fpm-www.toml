@@ -1,3 +1,0 @@
-[template]
-src = "fpm-www.conf.tmpl"
-dest = "/usr/local/etc/php-fpm.d/www.conf"
