@@ -12,8 +12,13 @@ fi
 
 cat > /etc/php.d/zzz-nuphp.ini <<EOF
 extension=amqp.so
+extension=igbinary.so
+extension=imagick.so
+extension=mcrypt.so
 extension=memcached.so
+extension=mongodb.so
 extension=redis.so
+extension=yaml.so
 zend_extension=opcache.so
 
 upload_max_filesize=${NUPHP_UPLOAD_MAX_FILESIZE:-2M}

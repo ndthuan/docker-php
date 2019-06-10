@@ -2,6 +2,79 @@
 
 PHP image packaged with commonly used extensions: `bz2 gd intl mbstring memcached mysqli opcache pcntl pdo_mysql soap sockets zip`.
 
+<details>
+    <summary><strong>Installed extensions</strong></summary>
+    <p>
+
+```
+[PHP Modules]
+amqp
+bcmath
+bz2
+calendar
+Core
+ctype
+curl
+date
+dom
+exif
+fileinfo
+filter
+ftp
+gd
+gettext
+hash
+iconv
+igbinary
+imagick
+imap
+intl
+json
+ldap
+libxml
+mbstring
+mcrypt
+memcached
+mongodb
+mysqli
+mysqlnd
+openssl
+pcntl
+pcre
+PDO
+pdo_mysql
+pdo_pgsql
+pdo_sqlite
+pgsql
+Phar
+posix
+readline
+redis
+Reflection
+session
+SimpleXML
+soap
+sockets
+SPL
+sqlite3
+standard
+tokenizer
+xml
+xmlreader
+xmlrpc
+xmlwriter
+xsl
+yaml
+Zend OPcache
+zip
+zlib
+
+[Zend Modules]
+Zend OPcache
+```
+    </p>
+</details>
+
 **Examples:**
 
 For open source apps that put everything in public root directory such as phpBB, WordPress...:
@@ -48,6 +121,7 @@ Available tags:
   * WWW_DIR_ALLOW_OVERRIDE (default: "None")
   * WWW_DIR_OPTIONS (default: "-Indexes")
   * VHOST_PUBLIC_ROOT (default: /var/www/html)
+  * VHOST_FALLBACK_RESOURCE (default: /index.php)
 * Modify **www-data** UID and GID by supplying:
   * NEW_WWW_DATA_UID
   * NEW_WWW_DATA_GID
