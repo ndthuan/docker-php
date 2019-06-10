@@ -2,6 +2,81 @@
 
 Docker image based on Alpine with PHP and Apache2.
 
+<details>
+<summary>Installed extensions</summary>
+<p>
+
+```
+[PHP Modules]
+amqp
+bcmath
+bz2
+calendar
+Core
+ctype
+curl
+date
+dom
+exif
+fileinfo
+filter
+ftp
+gd
+gettext
+hash
+iconv
+igbinary
+imagick
+imap
+intl
+json
+ldap
+libxml
+mbstring
+mcrypt
+memcached
+mongodb
+mysqli
+mysqlnd
+openssl
+pcntl
+pcre
+PDO
+pdo_mysql
+pdo_pgsql
+pdo_sqlite
+pgsql
+Phar
+posix
+readline
+redis
+Reflection
+session
+SimpleXML
+soap
+sockets
+SPL
+sqlite3
+standard
+tokenizer
+xml
+xmlreader
+xmlrpc
+xmlwriter
+xsl
+yaml
+Zend OPcache
+zip
+zlib
+
+[Zend Modules]
+Zend OPcache
+```
+
+</p>
+</details>
+
+
 **Examples:**
 
 For open source apps that put everything in public directory such as phpBB, WordPress...:
@@ -59,7 +134,3 @@ ndthuan/php:7.2-apache-alpine
   * SSMTP_AUTH_METHOD (default: LOGIN)
   * SSMTP_USE_TLS (default: NO)
   * SSMTP_USE_STARTTLS (default: NO)
-
-# Credits
-
-These Docker images are packaged with the excellent [confd](https://github.com/kelseyhightower/confd) for managing configuration templates.
