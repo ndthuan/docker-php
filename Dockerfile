@@ -34,3 +34,4 @@ ENTRYPOINT [ "/entrypoint.sh" ]
 CMD [ "httpd", "-DFOREGROUND" ]
 
 WORKDIR /var/www/html
+EXPOSE 80
