@@ -15,15 +15,20 @@ extension=amqp.so
 extension=redis.so
 extension=memcached.so
 
+date.timezone=${NUPHP_DATE_TIMEZONE:-UTC}
 upload_max_filesize=${NUPHP_UPLOAD_MAX_FILESIZE:-2M}
 post_max_size=${NUPHP_POST_MAX_FILESIZE:-8M}
 memory_limit=${NUPHP_MEMORY_LIMIT:-128M}
 expose_php=${NUPHP_EXPOSE_VERSION:-Off}
 session.cookie_httponly=${NUPHP_SESSION_COOKIE_HTTPONLY:-On}
 session.cookie_secure=${NUPHP_SESSION_COOKIE_SECURE:-Off}
+session.cookie_lifetime=${NUPHP_SESSION_COOKIE_LIFETIME:-0}
 session.name=${NUPHP_SESSION_NAME:-PHPSESSID}
 session.save_handler=${NUPHP_SESSION_SAVE_HANDLER:-files}
 session.save_path=${NUPHP_SESSION_SAVE_PATH:-}
+session.serialize_handler=${NUPHP_SESSION_SERIALIZE_HANDLER:-php}
+session.gc_maxlifetime=${NUPHP_SESSION_GC_MAXLIFETIME:-1440}
+session.auto_start=${NUPHP_SESSION_AUTO_START:-Off}
 
 sendmail_path = "/usr/sbin/ssmtp -t"
 EOF

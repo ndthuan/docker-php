@@ -28,6 +28,7 @@ ndthuan/php:5.6-apache-alpine
 # Supported env vars
 
 * **PHP settings**
+  * NUPHP_DATE_TIMEZONE (default: UTC)
   * NUPHP_UPLOAD_MAX_FILESIZE (default: 2M)
   * NUPHP_POST_MAX_FILESIZE (default: 8M)
   * NUPHP_MEMORY_LIMIT (default: 128M)
@@ -37,6 +38,10 @@ ndthuan/php:5.6-apache-alpine
   * NUPHP_SESSION_NAME (default: PHPSESSID)
   * NUPHP_SESSION_SAVE_HANDLER (default: files)
   * NUPHP_SESSION_SAVE_PATH (default: _empty_)
+  * NUPHP_SESSION_COOKIE_LIFETIME (default: 0)
+  * NUPHP_SESSION_SERIALIZE_HANDLER (default: php)
+  * NUPHP_SESSION_GC_MAXLIFETIME (default: 1440)
+  * NUPHP_SESSION_AUTO_START (default: Off)
 * **Apache2 settings**
   * APACHE_SERVER_TOKENS (default: Prod)
   * APACHE_SERVER_SIGNATURE (default: Off)
