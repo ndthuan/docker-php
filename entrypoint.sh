@@ -15,6 +15,8 @@ extension=amqp.so
 extension=redis.so
 extension=memcached.so
 
+short_open_tag=On
+
 date.timezone=${NUPHP_DATE_TIMEZONE:-UTC}
 upload_max_filesize=${NUPHP_UPLOAD_MAX_FILESIZE:-2M}
 post_max_size=${NUPHP_POST_MAX_FILESIZE:-8M}
