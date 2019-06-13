@@ -82,6 +82,8 @@ DocumentRoot "${VHOST_PUBLIC_ROOT:=/var/www/html}"
 <IfModule mod_headers.c>
 	Header unset ETag
 
+	Header set X-Hostname $HOSTNAME
+
 	<filesMatch "\.(ico|jpe?g|png|gif|swf)$">
 		Header set Cache-Control "max-age=2592000, public"
 	</filesMatch>
