@@ -1,11 +1,11 @@
 FROM alpine:3.9 AS builder
 
-ARG phpver=php-7.3.6
+ARG phpver=php-7.3.11
 
 RUN apk update --no-cache && \
     apk add --no-cache build-base apache2-dev bzip2-dev curl-dev gettext-dev imap-dev libedit-dev libpng-dev readline-dev \
     libxml2-dev libmemcached-dev libzip-dev rabbitmq-c-dev wget apache2 icu-dev libmcrypt-dev yaml-dev imagemagick-dev openldap-dev \
-    autoconf libxslt-dev openldap-dev && \
+    autoconf libxslt-dev openldap-dev curl && \
     cd /tmp && \
     wget https://www.php.net/distributions/${phpver}.tar.gz && \
     tar xzf ${phpver}.tar.gz && \
@@ -84,3 +84,5 @@ ENTRYPOINT [ "/entrypoint.sh" ]
 CMD [ "httpd", "-DFOREGROUND" ]
 
 WORKDIR /var/www/html
+
+HEALTHCHECK CMD curl --silent --fail http://localhost || exit 1
