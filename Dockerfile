@@ -1,7 +1,7 @@
 FROM alpine:3.7 AS builder
 
 RUN apk update --no-cache && \
-    apk add --no-cache libmemcached-dev rabbitmq-c-dev zlib-dev autoconf build-base pkgconf php5-dev php5-pear php5-openssl && \
+    apk add --no-cache libmemcached-dev rabbitmq-c-dev zlib-dev autoconf build-base pkgconf php5-dev php5-pear php5-openssl curl && \
     ln -sf /usr/bin/php5 /usr/bin/php && \
     ln -sf /usr/bin/phpize5 /usr/bin/phpize && \
     ln -sf /usr/bin/php-config5 /usr/bin/php-config && \
@@ -35,3 +35,5 @@ CMD [ "httpd", "-DFOREGROUND" ]
 
 WORKDIR /var/www/html
 EXPOSE 80
+
+HEALTHCHECK CMD curl --silent --fail http://localhost || exit 1
