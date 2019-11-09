@@ -7,7 +7,7 @@ RUN apk update --no-cache && \
     php7-ctype php7-intl php7-sqlite3 php7-tokenizer php7-posix php7-fileinfo php7-simplexml \
     php7-pdo php7-openssl php7-pdo_sqlite php7-dom php7-curl php7-xsl php7-ldap php7-json php7-bcmath php7-opcache \
     php7-pecl-redis php7-pecl-yaml php7-pecl-memcached php7-pecl-amqp php7-pecl-mongodb php7-pecl-imagick \
-    apache2 ssmtp shadow && \
+    apache2 ssmtp shadow curl && \
     ln -sf /proc/self/fd/2 /var/log/apache2/access.log && \
     ln -sf /proc/self/fd/2 /var/log/apache2/error.log && \
     adduser -S -s /sbin/nologin -G www-data -h /var/www/html www-data
@@ -21,3 +21,5 @@ ENTRYPOINT [ "/entrypoint.sh" ]
 CMD [ "httpd", "-DFOREGROUND" ]
 
 WORKDIR /var/www/html
+
+HEALTHCHECK CMD curl --silent --fail http://localhost || exit 1
