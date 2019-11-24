@@ -36,4 +36,4 @@ CMD [ "httpd", "-DFOREGROUND" ]
 WORKDIR /var/www/html
 EXPOSE 80
 
-HEALTHCHECK CMD curl --silent --fail http://localhost || exit 1
+# HEALTHCHECK CMD curl --silent --fail http://localhost || exit 1
