@@ -12,7 +12,7 @@ fi
 
 cat > /etc/php5/conf.d/zzz-nuphp.ini <<EOF
 extension=amqp.so
-extension=redis.so
+; extension=redis.so
 extension=memcached.so
 
 short_open_tag=On
