@@ -1,6 +1,6 @@
 FROM alpine:3.9 AS builder
 
-ARG phpver=php-7.3.11
+ARG phpver=php-7.3.21
 
 RUN apk update --no-cache && \
     apk add --no-cache build-base apache2-dev bzip2-dev curl-dev gettext-dev imap-dev libedit-dev libpng-dev readline-dev \
@@ -53,7 +53,7 @@ RUN apk update --no-cache && \
 
 FROM alpine:3.9
 
-ARG phpver=php-7.3.6
+ARG phpver=php-7.3.21
 
 RUN apk update --no-cache && \
     apk add --no-cache apache2 libedit libpq readline libxml2 libmemcached libzip libbz2 libcurl libxslt yaml \
