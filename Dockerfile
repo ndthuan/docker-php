@@ -57,7 +57,7 @@ ARG phpver=php-7.3.21
 
 RUN apk update --no-cache && \
     apk add --no-cache apache2 libedit libpq readline libxml2 libmemcached libzip libbz2 libcurl libxslt yaml \
-    icu-libs libpng gettext-libs imap c-client shadow ssmtp rabbitmq-c libmcrypt imagemagick-libs && \
+    icu-libs libpng gettext-libs imap c-client shadow ssmtp rabbitmq-c libmcrypt imagemagick-libs curl && \
     ln -sf /proc/self/fd/2 /var/log/apache2/access.log && \
     ln -sf /proc/self/fd/2 /var/log/apache2/error.log && \
     adduser -S -s /sbin/nologin -G www-data -h /var/www/html www-data && \
