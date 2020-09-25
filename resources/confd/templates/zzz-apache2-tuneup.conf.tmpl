@@ -12,8 +12,5 @@ ServerSignature {{ getenv "APACHE_SERVER_SIGNATURE" "Off" }}
 	<filesMatch "\.(js)$">
 		Header set Cache-Control "max-age=216000, private"
 	</filesMatch>
-	<filesMatch "\.(x?html?|php)$">
-		Header set Cache-Control "max-age=420, private, must-revalidate"
-	</filesMatch>
 </IfModule>
 FileETag None
