@@ -93,9 +93,6 @@ DocumentRoot "${VHOST_PUBLIC_ROOT:=/var/www/html}"
 	<filesMatch "\.(js)$">
 		Header set Cache-Control "max-age=216000, private"
 	</filesMatch>
-	<filesMatch "\.(x?html?|php)$">
-		Header set Cache-Control "max-age=420, private, must-revalidate"
-	</filesMatch>
 </IfModule>
 FileETag None
 
