@@ -59,18 +59,8 @@ LoadModule rewrite_module modules/mod_rewrite.so
 User www-data
 Group www-data
 
-ServerAdmin ${VHOST_SERVER_ADMIN:-webmaster@localhost}
 ServerTokens ${APACHE_SERVER_TOKENS:-Prod}
 ServerSignature ${APACHE_SERVER_SIGNATURE:-Off}
-DocumentRoot ${VHOST_PUBLIC_ROOT:-/var/www/html}
-
-<Directory "${VHOST_PUBLIC_ROOT}">
-    Options ${WWW_DIR_OPTIONS:--Indexes +FollowSymLinks}
-    DirectoryIndex ${WWW_DIR_INDEX:-index.html index.php}
-    AllowOverride ${WWW_DIR_ALLOW_OVERRIDE:-None}
-    Require all granted
-    FallbackResource ${VHOST_FALLBACK_RESOURCE:-/index.php}
-</Directory>
 
 <IfModule !mpm_netware_module>
     PidFile "/run/httpd.pid"
@@ -108,6 +98,18 @@ AddOutputFilterByType DEFLATE application/xhtml+xml
 AddOutputFilterByType DEFLATE application/rss+xml
 AddOutputFilterByType DEFLATE application/javascript
 AddOutputFilterByType DEFLATE application/x-javascript
+
+<VirtualHost *:80>
+ServerAdmin ${VHOST_SERVER_ADMIN:-webmaster@localhost}
+DocumentRoot ${VHOST_PUBLIC_ROOT:-/var/www/html}
+<Directory "${VHOST_PUBLIC_ROOT}">
+    Options ${WWW_DIR_OPTIONS:--Indexes +FollowSymLinks}
+    DirectoryIndex ${WWW_DIR_INDEX:-index.html index.php}
+    AllowOverride ${WWW_DIR_ALLOW_OVERRIDE:-None}
+    Require all granted
+    FallbackResource ${VHOST_FALLBACK_RESOURCE:-/index.php}
+</Directory>
+</VirtualHost>
 
 EOF
 
