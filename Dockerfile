@@ -84,5 +84,3 @@ ENTRYPOINT [ "/entrypoint.sh" ]
 CMD [ "httpd", "-DFOREGROUND" ]
 
 WORKDIR /var/www/html
-
-HEALTHCHECK CMD curl --silent --fail http://localhost || exit 1
